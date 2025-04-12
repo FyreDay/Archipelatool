@@ -7,9 +7,9 @@ def home_screen(page: ft.Page):
     items = [
         {'title': 'Clients', 'icon': ft.Icons.GROUP_ROUNDED, 'route': 'clients'},
         {'title': 'Generate & Host', 'icon': ft.Icons.WIFI_PROTECTED_SETUP_ROUNDED, 'route': 'generate'},
-        {'title': 'Worlds', 'icon': ft.Icons.TRAVEL_EXPLORE_ROUNDED, 'route': 'worlds'},
+        {'title': 'My Worlds', 'icon': ft.Icons.TRAVEL_EXPLORE_ROUNDED, 'route': 'worlds'},
         {'title': 'Yamls', 'icon': ft.Icons.SETTINGS_ROUNDED, 'route': 'yamls'},
-        {'title': 'Games', 'icon': ft.Icons.VIDEOGAME_ASSET_ROUNDED, 'route': 'games'},
+        {'title': 'Discovery', 'icon': ft.Icons.VIDEOGAME_ASSET_ROUNDED, 'route': 'games'},
         {'title': 'Links', 'icon': ft.Icons.LINK_ROUNDED, 'route': 'links'},
     ]
 

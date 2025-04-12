@@ -12,6 +12,7 @@ from aptool_views.generate_and_host_screen import generate_and_host_screen
 
 def main(page: ft.Page):
     page.title = "Archipelatool"
+    page.theme_mode = ft.ThemeMode.DARK
     page.bgcolor = AppColors.mainBack
     page.window.width = 1050
     page.window.min_width = 700

@@ -1,10 +1,38 @@
-﻿import flet as ft
+﻿import subprocess
+
+import flet as ft
 from functools import partial
 
 from app_colors import AppColors
 
 
 def links_screen(page: ft.Page):
+    def on_result(e: ft.FilePickerResultEvent):
+        if e.files:
+            python_file_path = file_picker.result.files[0].path
+            # Run the selected Python file
+            print(python_file_path)
+            subprocess.Popen(["python", python_file_path])
+
+    file_picker = ft.FilePicker(on_result=on_result)
+    selected_files = ft.Text()
+
+            # subprocess.Popen(["python", python_file_path])
+
+    def open_file_dialog(e):
+        file_picker.pick_files(allowed_extensions=["py"], allow_multiple=False)
+
+    def generate_yamls():
+        from Options import generate_yaml_templates
+
+        target = Utils.user_path("Players", "Templates")
+        generate_yaml_templates(target, False)
+        open_folder(target)
+
+    # Set up the page
+    page.overlay.append(file_picker)
+    run_button = ft.ElevatedButton("Run Selected Script")
+    browse_button = ft.ElevatedButton("Browse for Python Script", on_click=open_file_dialog)
 
     page.theme = ft.Theme(
         color_scheme=ft.ColorScheme(
@@ -51,6 +79,8 @@ def links_screen(page: ft.Page):
                 )
             ),
             search_field,
+            run_button,
+            browse_button
         ],
         bgcolor=AppColors.mainBack
     )
